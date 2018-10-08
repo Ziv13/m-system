@@ -1,0 +1,61 @@
+cnpm install -g vue-cli        //全局安装vue-cli
+vue init webpack douban_movie //基于webpack安装
+cd douban_movies -->  npm install --> npm run dev
+
+
+App.vue 所有自己写的组件，都是在这个组件之上运行了
+main.js webpack入口文件，webpack四大特性entry入口、output输出，loader加载器，plugins插件，可以在项目中buildwebpack.base.conf.js 查看
+
+--------------安装mint-ui------------
+cnpm i mint-ui -S //安装mint-ui
+按需引入: npm install babel-plugin-component -D
+
+将 .babelrc 修改为：
+
+{
+  "presets": [
+    ["es2015", { "modules": false }]
+  ],
+  "plugins": [["component", [
+    {
+      "libraryName": "mint-ui",
+      "style": true
+    }
+  ]]]
+}
+
+----------- 安装element-ui------------
+
+将 .babelrc 修改为：
+
+{
+  "presets": [["es2015", { "modules": false }]],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
+
+-----------
+
+Couldn't find preset "es2015" relative to directory问题解决
+
+ 
+
+由于没使用ES标准，而引入的vue-ueditor使用了ES标准，所以编译会报错，解决办法如下：
+
+ npm install babel-preset-es2015 --save-dev
+
+//安装sass插件
+cnpm i -D node-sass sass-loader
+
+  {
+         test: /\.scss$/,
+         loaders: ["style", "css", "sass"]
+   },
+
